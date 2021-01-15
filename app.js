@@ -2,9 +2,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
-// import Article from './models/articlesModel.js';
-// import articles from './routes/articlesRoute.js'
-// import users from './routes/usersRoute.js'
+import Task from './models/taskModel.js';
+import tasks from './routes/taskRoute.js'
+import users from './routes/usersRoute.js'
 
 mongoose.connect('mongodb://localhost/task_management');
 let db = mongoose.connection;
@@ -33,14 +33,14 @@ app.use(function (req, res, next) {
     next();
 })
 
-// app.get('/', (req, res) => {
-//     Article.find({}, (err, articles) => {
-//         res.json({ articles: articles });
-//     })
-// });
+app.get('/', (req, res) => {
+    Task.find({}, (err, tasks) => {
+        res.json({ tasks: tasks });
+    })
+});
 
-// app.use('/articles', articles);
-// app.use('/users', users);
+app.use('/tasks', tasks);
+app.use('/users', users);
 
 app.listen(5000, () => {
     console.log('Server started on port 5000');
