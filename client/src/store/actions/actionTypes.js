@@ -1,0 +1,5 @@
+export const GOT_ALL_TASKS = 'GOT_ALL_TASKS';
+export const GOT_SINGLE_TASK = 'GOT_SINGLE_TASK';
+
+export const LOGIN_SUCCESSFUL = 'LOGIN_SUCCESSFUL';
+export const LOGOUT_USER = 'LOGOUT_USER';
