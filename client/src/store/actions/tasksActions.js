@@ -27,7 +27,7 @@ export const getTask = (taskId) => {
         fetch(URL + '/tasks/' + taskId)
             .then(res => res.json())
             .then(res => {
-                dispatch({ type: actionTypes.GOT_SINGLE_TASK, task: res.task })
+                dispatch({ type: actionTypes.GOT_SINGLE_TASK, task: res.Task })
             })
     };
 };

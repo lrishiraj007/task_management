@@ -9,7 +9,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import tasksReducer from './store/reducers/tasksReducer';
 import usersReducer from './store/reducers/usersReducer';
 
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals.js';
 
 const rootReducer = combineReducers({
   tasks: tasksReducer,
@@ -29,4 +29,4 @@ const app = (
 ReactDOM.render(app, document.getElementById('root'));
 
 
-reportWebVitals();
+// reportWebVitals();
