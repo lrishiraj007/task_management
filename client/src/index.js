@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import tasksReducer from './store/reducers/tasksReducer';
 import usersReducer from './store/reducers/usersReducer';
@@ -16,7 +17,10 @@ const rootReducer = combineReducers({
   users: usersReducer
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, composeWithDevTools(
+  applyMiddleware(thunk),
+  // other store enhancers if any
+));
 
 const app = (
   <Provider store={store}>
