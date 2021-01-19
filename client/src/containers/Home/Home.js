@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { getAllTasks } from '../../store/actions/tasksActions';
 import Task from '../../components/Task/Task';
 import WrappedLink from '../../components/WrappedLink/WrappedLink';
@@ -11,6 +12,9 @@ class Home extends Component {
     }
 
     render() {
+        if (!this.props.isAuthenticated) {
+            return <Redirect to="/login" />;
+        }
         const tasks = this.props.tasks.map(task => (
             <Task
                 key={task._id}
